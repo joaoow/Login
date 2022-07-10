@@ -1,0 +1,67 @@
+<html>
+<head>
+<title>Exemplo de validação de login</title>
+
+<script language="JavaScript">
+
+//Validar os campos usados no Login
+function ValidarLogin(strLogin,strSenha)
+{
+//linha de debug
+//alert("Login " + strLogin + "\n" + "Senha: " + strSenha);
+     if (strLogin == "")
+      { 
+         alert("Preencha corretamente o campo Login!");
+         document.frmLogin.txtLogin.focus();
+         return false;
+      }
+     else if (strSenha == "")
+      { 
+         alert("Preencha corretamente o campo Senha!");
+         document.frmLogin.pwdSenha.focus();
+         return false;
+      }
+     else 
+      { 
+          alert("Login feito com sucesso!!");
+          //poderia mandar o form fazer algo aqui ou mandar para alguma URL com window.location.href = URLDesejada; Ou deixar um action definida na propriedade action da tag form
+         //exemplo de submit dinâmico
+         //document.frmLogin.action = "noticias_login.asp"
+         //document.frmLogin.submit();
+         return true;
+      }
+}
+</script>
+</head>
+
+<body>
+<!-- Exemplo com proprieade action definida na tag form -->
+<form name="frmLogin" action="validar_login.asp" method="post"  onsubmit="javascript:return ValidarLogin(txtLogin.value,pwdSenha.value);">
+
+<!-- Exemplo com proprieade action definida dinamicamente em uma função do JavaScript -->
+<!--<form name="frmLogin" method="post"  onsubmit="javascript:return ValidarLogin(txtLogin.value,pwdSenha.value);">-->
+
+<p>
+<fieldset id="fldLogin" title="ol aolal lllll" style="width: 300px;">
+<legend align="left">Login</legend>
+<table id="tabCores" width="300" border="0" bgcolor="#DCDCDC">
+    <tr>
+      <td width="70%" align="left">Login</td>
+      <td width="30%" align="left"><input type="text" name="txtLogin" value="LOGIN" onfocus="javascript:this.value='';"></td>
+   </tr>
+    <tr>
+      <td width="70%" align="left">Senha</td>
+      <td width="30%" align="left"><input type="password" name="pwdSenha" value="SENHA"  onfocus="javascript:this.value='';"></td>
+   </tr>
+    <tr>
+      <td width="100%" align="left" colspan="2">&nbsp;</td>
+   </tr>
+    <tr>
+      <td width="100%" align="left" colspan="2"><input type="submit" name="btnEnviar" value="Enviar">&nbsp;&nbsp;&nbsp;<input type="reset" name="btnLimpar" value="Limpar"></td>
+   </tr>
+</table>
+</fieldset>
+</form>
+</body>
+
+</html>
